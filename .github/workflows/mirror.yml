@@ -1,0 +1,23 @@
+name : Sync repo A to repo B
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo A
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Push to repo B
+        env:
+          Token: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          git remote add mirror https://x-access-token:${TOKEN}@github.com/vijay-thakur20/Repo-B.git
+          git push --mirror mirror
