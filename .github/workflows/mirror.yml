@@ -20,5 +20,5 @@ jobs:
         env:
           TOKEN: ${{ secrets.TOKEN }}
         run: |
-          git remote add mirror https://x-access-token:${TOKEN}@github.com/vijay-thakur20/Repo-A.git
+          git remote add mirror https://x-access-token:${TOKEN}@github.com/vijay-thakur20/Repo-B.git
           git push mirror main
